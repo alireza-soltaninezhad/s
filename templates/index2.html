@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Monitor</title>
+</head>
+<body>
+    <h1>Select Video and Count</h1>
+    <form method="POST">
+        <select name="video">
+            {% for video in videos %}
+            <option value="{{ video }}">{{ video }}</option>
+            {% endfor %}
+        </select>
+        <input type="number" name="count" min="1" value="1">
+        <button type="submit">Monitor</button>
+    </form>
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+</body>
+</html>

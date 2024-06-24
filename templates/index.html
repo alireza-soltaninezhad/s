@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Streamer</title>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script>
+        var socket = io();
+
+        socket.on('resource_update', function(data) {
+            document.getElementById('cpu').textContent = 'CPU Usage: ' + data.cpu + '%';
+            document.getElementById('memory').textContent = 'Memory Usage: ' + data.memory + '%';
+        });
+    </script>
+</head>
+<body>
+    <h1>Select a Video</h1>
+    <ul>
+        {% for video in videos %}
+        <li><a href="#" onclick="document.getElementById('video_player').src='/video/{{ video }}'; return false;">{{ video }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <video id="video_player" width="640" controls autoplay>
+        Select a video from the list.
+    </video>
+
+    <p id="cpu">CPU Usage: Loading...</p>
+    <p id="memory">Memory Usage: Loading...</p>
+</body>
+</html>
