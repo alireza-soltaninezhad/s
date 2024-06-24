@@ -1,4 +1,0 @@
-Average CPU: 7.846753246753248%
-Average Memory: 48.47922077922078%
-Average Sent: 0.011381 GB
-Average Received: 0.057551 GB
